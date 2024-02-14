@@ -1,0 +1,78 @@
+@charset "utf-8"; 
+
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=IBM+Plex+Sans+KR:wght@200;300;400;500;600;700&display=swap');
+
+
+/* default */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,fieldset,p,button,iframe,th,td{margin:0; padding:0; line-height:0; font-size:0;}
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block; margin:0; padding:0; box-sizing:border-box;}
+h1,h2,h3,h4,h5,h6,dt{font-weight:normal;}
+img,fieldset,iframe,button{border:0 none;}
+li{list-style:none;}
+i, em, u, cite {font-style:normal;}
+strong{font-weight:normal;}
+a{color:#757575; text-decoration:none; outline-offset:-1px;}
+.chrome a,
+.safari a{outline-offset:-3px;}
+
+
+html, body{height:100%; line-height:0; font-size:0; font-family: "IBM Plex Sans KR", sans-serif;}
+body{overflow-x:hidden; word-break:keep-all; word-wrap:break-word;}
+body.non-scroll {overflow-y:hidden;}
+
+/* Form */
+legend{position: absolute; top: 0; left: 0; width: 0; height: 0; overflow: hidden; visibility: hidden; font-size: 0; line-height: 0;}
+select, input, textarea {outline:0;}
+select, input, label{vertical-align:middle}
+button{border:0 none; cursor:pointer; background:none; font-family: "IBM Plex Sans KR", sans-serif;}
+
+select::-ms-expand { display: none;}
+select::-moz-focus-inner { border: 0; padding: 0;}
+select:-moz-focusring { color: transparent; text-shadow: 0 0 0 #000;}
+select{font-family: "IBM Plex Sans KR", sans-serif;}
+input{font-family: "IBM Plex Sans KR", sans-serif;}
+table {border-collapse: collapse; table-layout:fixed; width:100%;}
+textarea {font-family: "IBM Plex Sans KR", sans-serif;}
+*:focus {outline: 0;}
+input[type=text]::-ms-clear {display: none; height: 0; width: 0;}
+
+body {font-family: "IBM Plex Sans KR", sans-serif; font-weight: 300; background:#36312A;}
+/* font-family: "Cormorant Garamond", serif; */
+
+.header {height:80px; padding:0 40px; display:flex; align-items: center; justify-content: space-between;  background-image: linear-gradient(to bottom, rgba(56, 51, 48, 0.4), rgba(0, 0, 0, 0)); position:absolute; top:0; left:0; width:100%; box-sizing: border-box;}
+.header .link { padding:0 16.5px 0 18.5px; background-color: #383330; height:53px; display: flex; align-items: center;}
+.header .link a {font-size: 12px; line-height: 53px; color: #d4ccc2; padding-right:10px; background:url('/assets/images/common/icon-arrow.png') no-repeat right center; background-size:3px auto;}
+.header h1 img {height:35px;}
+.header .head .gnb {display: flex; }
+.header .head .gnb > li > a {font-size: 20px; line-height: 1.5; color: #d4ccc2; padding:0 35px; height:80px; display:flex; align-items: center;}
+
+.main-content {}
+.main-content .main-sec01 {position: relative; height:200vh;}
+.main-content .main-sec01 .text {height:100vh; display: flex; align-items: center; justify-content: center; position:sticky; top:0; left:0;}
+.main-content .main-sec01 .text p {font-family: "Cormorant Garamond", serif; font-size: 70px; font-weight: bold; line-height: 1.14; text-align: center; color: #fff;}
+.main-content .main-sec01 .img-scroll {position: fixed; height:100vh; width:100%; left:0; top:0;}
+.main-content .main-sec01 .img-scroll .img01 {position: absolute; left:0%; top:0%; opacity:0; filter: blur(10px); transform: scale(0);}
+.main-content .main-sec01 .img-scroll li div {width:604px; height:862px; overflow: hidden; position: relative;}
+.main-content .main-sec01 .img-scroll li div img {position: relative; left:50%; top:50%; transform: translate(-50%, -50%);}
+
+.main-content .info-scroll {position: absolute; height:100vh; left:0; top:0; width:100%; display: flex; align-items: flex-end; justify-content: center;}
+.main-content .info-scroll p {font-family: "Cormorant Garamond", serif; font-size: 12px; line-height: 1.33; color: #fff; padding:20px 0;  opacity: 0.67; text-transform: uppercase;}
+.main-content .sc-line {width:1px; height:74px; overflow: hidden; margin:0 auto;}
+.main-content .sc-line span {animation:scrollDown 2.2s cubic-bezier(.76,0,.3,1) forwards infinite; height:100%; width:1px; background:#ac9f8c; display:block;}
+
+@keyframes scrollDown {
+  0% {
+      transform: translateY(-100%)
+  }
+
+  75% {
+      transform: translateY(0)
+  }
+
+  to {
+      transform: translateY(100%)
+  }
+}
+
+

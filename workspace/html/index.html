@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="">
+  <meta name="keywords"    content="">
+  <meta name="color-scheme" content="light only"/>  
+  <link rel="icon" type="image/png" href="https://www.lotte.co.kr/common/favicon/rd_72.png"/>
+  <!-- og property -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="">
+  <meta property="og:title" content="">
+  <meta property="og:url" content="">
+  <meta property="og:description" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:height" content="">
+  <meta property="og:image:width" content="">
+  <title>LOTTE - 롯데정밀화학</title>
+  <!-- css -->
+  <link rel="stylesheet" type="text/css" href="/assets/css/default.css" />
+</head>
+
+<body>
+  <div class="wrap main-wrap">
+    <include src="./inc/header.html" title="header"></include>
+    <!-- content  -->
+    <div class="main-content">
+      <div class="main-sec01">
+        <div class="text">
+          <p>
+            LOTTE FINE CHEMICAL<br/>
+            DIGITAL HISTORY
+          </p>          
+        </div>
+        <div class="info-scroll">
+          <div>
+            <div class="sc-line">
+              <span></span>
+            </div>
+            <p>Scroll Down</p>
+          </div>
+        </div>
+        <div class="img-scroll">
+          <ul>
+            <li class="img01"><div><img src="/assets/images/main/main_intro-01.jpg" alt=""></div></li>
+            <!-- <li class="img02"><div><img src="/assets/images/main/main_intro-02.jpg" alt=""></div></li> -->
+            <!-- <li class="img03"><div><img src="/assets/images/main/main_intro-03.jpg" alt=""></div></li>
+            <li class="img04"><div><img src="/assets/images/main/main_intro-04.jpg" alt=""></div></li>
+            <li class="img05"><div><img src="/assets/images/main/main_intro-05.jpg" alt=""></div></li>
+            <li class="img06"><div><img src="/assets/images/main/main_intro-06.jpg" alt=""></div></li>
+            <li class="img07"><div><img src="/assets/images/main/main_intro-07.jpg" alt=""></div></li>
+            <li class="img08"><div><img src="/assets/images/main/main_intro-08.jpg" alt=""></div></li>
+            <li class="img09"><div><img src="/assets/images/main/main_intro-09.jpg" alt=""></div></li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+    
+    <include src="./inc/footer.html" title="footer"></include>
+  </div>
+  
+
+  <!-- js library -->
+  <script type="text/javascript" src="/assets/lib/jquery-3.6.0.min.js"></script>
+  <script  type="text/javascript" src="/assets/lib/gsap.min.js"></script>
+  <script  type="text/javascript" src="/assets/lib/scrollTrigger.min.js"></script>
+
+  <!-- js init -->
+  <script type="text/javascript" src="/assets/js/common.js"></script>
+  <script type="text/javascript">
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.defaults({
+      ease: 'none'
+    });
+
+    // gsap.to(".img01", {
+    //   scrollTrigger: {
+    //     trigger: ".main-sec01",
+    //     scroller: "html",
+    //     start:"top 0",
+    //     end: "+=" + 800,
+    //     scrub: true,
+    //     markers: true,
+        
+    //   },
+    //   opacity:1,
+    //   filter: "blur(0px)",
+    //   scale:2,
+
+    // });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".main-sec01",
+        start: "top top",
+        end: "+=1000",
+        scrub: 1,
+        pin: true,
+        markers: true
+      }
+    });
+    tl.to(".img01", {opacity:1, filter: "blur(0px)", scale:1, duration: 2})
+    tl.to(".img01", {opacity:0, filter: "blur(3px)", scale:2, duration: 1})
+  </script>
+</body>
+</html>
