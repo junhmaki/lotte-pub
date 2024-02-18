@@ -29,10 +29,10 @@
     <div class="main-content">
       <div class="main-sec01">
         <div class="text">
-          <p>
+          <h2>
             LOTTE FINE CHEMICAL<br/>
             DIGITAL HISTORY
-          </p>          
+          </h2>          
         </div>
         <div class="info-scroll">
           <div>
@@ -45,28 +45,72 @@
         <div class="img-box">
           <div class="img-scroll">
             <ul>
-              <li class="img01"><div><img src="/assets/images/main/main_intro-01.jpg" alt=""></div></li>
-              <li class="img02"><div><img src="/assets/images/main/main_intro-02.jpg" alt=""></div></li>
-              <li class="img03"><div><img src="/assets/images/main/main_intro-03.jpg" alt=""></div></li>
-              <li class="img04"><div><img src="/assets/images/main/main_intro-04.jpg" alt=""></div></li>
-              <li class="img05"><div><img src="/assets/images/main/main_intro-05.jpg" alt=""></div></li>
-              <li class="img06"><div><img src="/assets/images/main/main_intro-06.jpg" alt=""></div></li>
-              <li class="img07"><div><img src="/assets/images/main/main_intro-07.jpg" alt=""></div></li>
-              <li class="img08"><div><img src="/assets/images/main/main_intro-08.jpg" alt=""></div></li>
               <li class="img09"><div><img src="/assets/images/main/main_intro-09.jpg" alt=""></div></li>
+              <li class="img08"><div><img src="/assets/images/main/main_intro-08.jpg" alt=""></div></li>
+              <li class="img07"><div><img src="/assets/images/main/main_intro-07.jpg" alt=""></div></li>
+              <li class="img06"><div><img src="/assets/images/main/main_intro-06.jpg" alt=""></div></li>
+              <li class="img05"><div><img src="/assets/images/main/main_intro-05.jpg" alt=""></div></li>
+              <li class="img04"><div><img src="/assets/images/main/main_intro-04.jpg" alt=""></div></li>
+              <li class="img03"><div><img src="/assets/images/main/main_intro-03.jpg" alt=""></div></li>
+              <li class="img02"><div><img src="/assets/images/main/main_intro-02.jpg" alt=""></div></li>
+              <li class="img01"><div><img src="/assets/images/main/main_intro-01.jpg" alt=""></div></li>
             </ul>
           </div>
         </div>
       </div>
       <div class="main-sec02">
         <iframe src="https://player.vimeo.com/video/76979871?autoplay=1&loop=1&autopause=0" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+        <div class="img-bg">
+          <div class="text">
+            <span>History Movie</span>
+            <h3>History Highlight</strong>
+          </div>
+          <div class="play-btn">
+            <button type="button"><span></span>역사한눈에보기</button>
+          </div>
+        </div>
+      </div>
+      <div class="main-sec03">
+        <div class="move-img"></div>
+        <div class="bottom-sec">
+          <div class="text">
+            <span>Vision</span>
+            <h3>
+              <strong>글로벌 TOP10</strong><br/>
+              스페셜티 회사
+            </h3>
+            <p>
+              롯데정밀화학은 눈에 보이지 않을 정도의 작은<br/>
+              소재로 우리의 일상, 나아가 지속가능한 미래에<br/>
+              큰 울림을 전하는 스페셜티 소재 전문기업입니다.
+            </p>
+            <ul class="icon-list">
+              <li class="icon01">Lotte fine chemical 60 Years</li>
+              <li class="icon02">Vision</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="main-sec04">        
         <div class="text">
-          <span>History Movie</span>
-          <strong>History Highlight</strong>
+          <span>History of the times</span>
+            <h3>
+              <strong>Then and Now</strong>
+            </h3>
+            <p>
+              과거 그리고 현재 
+            </p>
         </div>
-        <div class="play-btn">
-          <button type="button"><span></span>역사한눈에보기</button>
+        <div class="img-area"></div>
+      </div>
+      <div class="main-sec05">
+        <div class="rolling-text">
+          <p>LOTTE Fine chemical 60th anniversary</p>
+          <p>LOTTE Fine chemical 60th anniversary</p>
+          <p>LOTTE Fine chemical 60th anniversary</p>
         </div>
+        <div class="img-marker"><img src="/assets/images/main/main_lastImg.png" alt=""></div>
+        <a href="#">E-book 자세히보기</a>
       </div>
     </div>
     
@@ -81,131 +125,8 @@
 
   <!-- js init -->
   <script type="text/javascript" src="/assets/js/common.js"></script>
+  <script type="text/javascript" src="/assets/js/main.js"></script>
   <script type="text/javascript">
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.defaults({
-      ease: 'none'
-    });
-
-    var half = $(window).height() / 2;
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".main-sec01",
-        start: "top" + 0,
-        end: "+=" + half,
-        scrub: 1,
-        // pin: true,
-        // markers: true
-      }
-    });
-    const t2 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".main-sec01",
-        start: "top" + half,
-        end: "+=" + (half*2),
-        scrub: 1,
-        // pin: true,
-        // markers: true
-      }
-    });
-    const t3 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".main-sec01",
-        start: "top" + (half*2),
-        end: "+=" + (half*3),
-        scrub: 1,
-        // pin: true,
-        // markers: true
-      }
-    });
-    const t4 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".main-sec01",
-        start: "top" + (half*3),
-        end: "+=" + (half*4),
-        scrub: 1,
-        // pin: true,
-        // markers: true
-      }
-    });
-    const t5 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".main-sec01",
-        start: "top" + (half*4),
-        end: "+=" + (half*5),
-        scrub: 1,
-        // pin: true,
-        // markers: true
-      }
-    });
-    const t6 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".main-sec01",
-        start: "top" + (half*5),
-        end: "+=" + (half*6),
-        scrub: 1,
-        // pin: true,
-        // markers: true
-      }
-    });
-    const t7 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".main-sec01",
-        start: "top" + (half*6),
-        end: "+=" + (half*7),
-        scrub: 1,
-        // pin: true,
-        // markers: true
-      }
-    });
-    const t8 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".main-sec01",
-        start: "top" + (half*7),
-        end: "+=" + (half*8),
-        scrub: 1,
-        // pin: true,
-        // markers: true
-      }
-    });
-    const t9 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".main-sec01",
-        start: "top" + (half*8),
-        end: "+=" + (half*9),
-        scrub: 1,
-        // pin: true,
-        // markers: true
-      }
-    });
-  
-    tl.to(".img01", {opacity:1, filter: "blur(0px)", scale:1, duration: 1})
-    tl.to(".img01", {opacity:0, scale:1.5, duration: 0.5})
-
-    t2.to(".img02", {opacity:1, filter: "blur(0px)", scale:1, duration: 1})
-    t2.to(".img02", {opacity:0, scale:1.5, duration: 0.5})
-
-    t3.to(".img03", {opacity:1, filter: "blur(0px)", scale:1, duration: 1})
-    t3.to(".img03", {opacity:0, scale:1.5, duration: 0.5})
-
-    t4.to(".img04", {opacity:1, filter: "blur(0px)", scale:1, duration: 1})
-    t4.to(".img04", {opacity:0, scale:1.5, duration: 0.5})
-
-    t5.to(".img05", {opacity:1, filter: "blur(0px)", scale:1, duration: 1})
-    t5.to(".img05", {opacity:0, scale:1.5, duration: 0.5})
-
-    t6.to(".img06", {opacity:1, filter: "blur(0px)", scale:1, duration: 1})
-    t6.to(".img06", {opacity:0, scale:1.5, duration: 0.5})
-
-    t7.to(".img07", {opacity:1, filter: "blur(0px)", scale:1, duration: 1})
-    t7.to(".img07", {opacity:0, scale:1.5, duration: 0.5})
-
-    t8.to(".img08", {opacity:1, filter: "blur(0px)", scale:1, duration: 1})
-    t8.to(".img08", {opacity:0, scale:1.5, duration: 0.5})
-
-    t9.to(".img09", {opacity:1, filter: "blur(0px)", scale:1, duration: 1})
-    t9.to(".img09", {opacity:0, scale:1.5, duration: 0.5})
   </script>
 </body>
 </html>
