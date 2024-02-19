@@ -157,7 +157,7 @@ t8.to(".img08", {opacity:0, scale:1.5, duration: 0.3})
 t9.to(".img09", {opacity:1, filter: "blur(0px)", scale:1, duration: 1})
 t9.to(".img09", {opacity:0, scale:1.5, duration: 0.3})
 
-var imgsTop = $('.main-sec03 .text').position().top;
+var imgsTop = $('.main-sec03 .text').position().top + $(window).height();
 var imgsRight = $('.main-sec03 .text').position().left;
 
 $(window).on('scroll', function () {
@@ -181,7 +181,7 @@ const imgBoxSize = gsap.timeline({
   scrollTrigger: {
     trigger: ".main-sec03",
     start: "top top",
-    end: "+=" + (half*1),
+    end: "+=" + (half*2),
     scrub: 1,
     // pin: true,
     // markers: true
