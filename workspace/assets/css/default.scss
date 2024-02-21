@@ -59,7 +59,8 @@ body {font-family: "IBM Plex Sans KR", sans-serif; font-weight: 300; background:
 .main-content .main-sec01.over .info-scroll {position: absolute; left:0; top:auto; bottom:0; opacity: 0;}
 .main-content .main-sec01 .img-box {position: relative; height:600vh; overflow: hidden;}
 .main-content .main-sec01 .text {height:100vh; display: flex; align-items: center; justify-content: center; position:fixed; top:0; left:0; z-index:10; width:100%;}
-.main-content .main-sec01 .text h2 {font-family: "Cormorant Garamond", serif; font-size: 70px; font-weight: bold; line-height: 1.14; text-align: center; color: #fff;}
+.main-content .main-sec01 .text h2 {font-family: "Cormorant Garamond", serif; font-size: 70px; font-weight: bold; line-height: 1.14; text-align: center; color: #fff; filter: blur(10px); opacity: 0; transform: translateY(50px); transition: all 0.5s;}
+.main-content.load .main-sec01 .text h2 {filter: blur(0px); opacity: 1; transform: translateY(0px);}
 .main-content .main-sec01 .img-scroll {position: fixed; height:100vh; width:100%; left:0; top:0;}
 .main-content .main-sec01 .img-scroll .img01 {position: absolute; left:5%; top:0%; opacity:0; filter: blur(10px); transform: scale(0);}
 .main-content .main-sec01 .img-scroll .img02 {position: absolute; right:5%; top:0%; opacity:0; filter: blur(10px); transform: scale(0);}
@@ -72,6 +73,8 @@ body {font-family: "IBM Plex Sans KR", sans-serif; font-weight: 300; background:
 .main-content .main-sec01 .img-scroll .img09 {position: absolute; left:5%; top:0%; opacity:0; filter: blur(10px); transform: scale(0);}
 .main-content .main-sec01 .img-scroll li div {width:604px; height:862px; overflow: hidden; position: relative;}
 .main-content .main-sec01 .img-scroll li div img {position: relative; left:50%; top:50%; transform: translate(-50%, -50%);}
+.main-content .main-sec01 .info-scroll {opacity: 0; transition: all 0.3s 0.5s;}
+.main-content.load .main-sec01 .info-scroll {opacity: 1;}
 
 .info-scroll {position: fixed; height:100vh; left:0; top:0; width:100%; display: flex; align-items: flex-end; justify-content: center; transition: opacity 0.3s;}
 .info-scroll p {font-family: "Cormorant Garamond", serif; font-size: 12px; line-height: 1.33; color: #fff; padding:20px 0;  opacity: 0.67; text-transform: uppercase;}
@@ -106,7 +109,7 @@ body {font-family: "IBM Plex Sans KR", sans-serif; font-weight: 300; background:
 
 .main-content .main-sec04 {height:100vh; min-height:900px; position: relative; background:url('/assets/images/main/main_than_01.jpg') center center no-repeat; background-size:cover; display:flex; align-items: center; justify-content: center; position: relative;}
 .main-content .main-sec04 .img-area {position: absolute; left:0; top:0; width:100%; height:100%; background:url('/assets/images/main/main_than_02.jpg') center center no-repeat; background-size:cover; clip-path: circle(290px at var(--x) var(--y));}
-.main-content .main-sec04 .img-area:active {clip-path: circle(400px at var(--x) var(--y)); transition: all 0.2s;}
+.main-content .main-sec04 .img-area:active {clip-path: circle(400px at var(--x) var(--y));}
 .main-content .main-sec04 .text {width:1400px; height:400px; position: relative;}
 .main-content .main-sec04 .text span {font-size: 18px; font-weight: 300; line-height: 1.72; text-align: left; color: #ac9f8c; font-family: "Cormorant Garamond", serif; display:inline-block;}
 .main-content .main-sec04 .text h3 {font-size: 70px; font-weight: bold; line-height: 1.14; text-align: left; color: #fff; font-family: "Cormorant Garamond", serif; margin-top:18px;}

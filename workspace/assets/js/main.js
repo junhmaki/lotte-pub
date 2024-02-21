@@ -1,8 +1,10 @@
+$(window).on('load', function() {
+  $('.main-content').addClass('load');
+})
+
 $('.play-btn button').on('click', function () {
   $('.main-sec02').addClass('play')
 });
-
-
 
 var maskBox = document.querySelectorAll('.main-sec04')[0];
 
@@ -11,8 +13,6 @@ var winH = $(window).height();
 
 maskBox.style.setProperty('--x', winW/1.5 + 'px');
 maskBox.style.setProperty('--y', winH/2 + 'px');
-
-
 
 maskBox.addEventListener('mousemove', e=> {
   maskBox.style.setProperty('--x', e.layerX + 'px');
@@ -195,3 +195,22 @@ imgBoxSize.to(".move-img", {
   height:'866px',
   duration: 1
 });
+
+
+$('.act-sec').each(function () {
+  gsap.to($(this), {
+    scrollTrigger: {
+      trigger: $(this),
+      start: "top 70%",
+      onEnter: () => {
+        $(this).addClass('active');
+      },
+      // onLeave: () => {
+      //   $(this).removeClass('active');
+      // },
+      onLeaveBack: () => {
+        $(this).removeClass('active');
+      },
+    },
+  });
+})
