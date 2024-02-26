@@ -177,23 +177,40 @@ $(window).on('resize', function () {
 
 
 
-const imgBoxSize = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".main-sec03",
-    start: "top top",
-    end: "+=" + (half*2),
-    scrub: 1,
-    // pin: true,
-    // markers: true
-  }
-});
+// const imgBoxSize = gsap.timeline({
+//   scrollTrigger: {
+//     trigger: ".main-sec03",
+//     start: "top top",
+//     end: "+=" + (half*2),
+//     scrub: 1,
+//     // pin: true,
+//     // markers: true
+//   }
+// });
 
-imgBoxSize.to(".move-img", {
-  top:imgsTop, 
-  right:imgsRight,
-  width:'692px',
-  height:'866px',
-  duration: 1
+// imgBoxSize.to(".move-img", {
+//   top:imgsTop, 
+//   right:imgsRight,
+//   width:'692px',
+//   height:'866px',
+//   duration: 1
+// });
+
+
+gsap.to('.move-img', {
+  scrollTrigger: {
+    trigger: '.main-sec03',
+    start: "top 70%",
+    onEnter: () => {
+      $('.move-img').addClass('active');
+    },
+    // onLeave: () => {
+    //   $('.move-img').removeClass('active');
+    // },
+    onLeaveBack: () => {
+      $('.move-img').removeClass('active');
+    },
+  },
 });
 
 

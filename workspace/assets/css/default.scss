@@ -40,18 +40,21 @@ input[type=text]::-ms-clear {display: none; height: 0; width: 0;}
 body {font-family: "IBM Plex Sans KR", sans-serif; font-weight: 300; background:#36312A; }
 /* font-family: "Cormorant Garamond", serif; */
 .wrap {}
-.header {height:80px; padding:0 40px; display:flex; align-items: center; justify-content: space-between;  background-image: linear-gradient(to bottom, rgba(56, 51, 48, 0.4), rgba(0, 0, 0, 0)); position:absolute; top:0; left:0; width:100%; box-sizing: border-box; z-index:20;}
+.header {height:80px; padding:0 40px; display:flex; align-items: center; justify-content: space-between;  background-image: linear-gradient(to bottom, rgba(56, 51, 48, 0.4), rgba(0, 0, 0, 0)); position:fixed; top:0; left:0; width:100%; box-sizing: border-box; z-index:20; transition: all 0.4s;}
+.header.fixed {background:rgba(0, 0, 0, 0.4);}
+.header.down {top:-80px;}
 .header .link { padding:0 16.5px 0 18.5px; background-color: #383330; height:53px; display: flex; align-items: center;}
 .header .link a {font-size: 12px; line-height: 53px; color: #d4ccc2; padding-right:10px; background:url('/assets/images/common/icon-arrow.png') no-repeat right center; background-size:3px auto;}
 .header h1 img {height:35px;}
 .header .head .gnb {display: flex; }
 .header .head .gnb > li {position: relative;}
-.header .head .gnb > li > a {font-size: 20px; line-height: 1.5; color: #d4ccc2; padding:0 35px; height:80px; display:flex; align-items: center;}
-.header .head .gnb > li > ul {position: absolute; padding:20px; border-radius: 10px; background:rgba(0, 0, 0, 0.1); left:0; width:100%; box-sizing: border-box; top:80%; display:none;}
+.header .head .gnb > li > a {font-size: 20px; line-height: 1.5; color: #d4ccc2; padding:0 35px; height:80px; display:flex; align-items: center; position: relative;}
+.header .head .gnb > li > ul {position: absolute; padding:28px 20px; border-radius: 10px; background:rgba(0, 0, 0, 0.4); left:0; width:100%; box-sizing: border-box; top:99%; display:none;}
 .header .head .gnb > li > ul a {font-size: 14px; line-height: 1.5; color: #d4ccc2; display:flex; align-items: center; display:block; text-align:center;}
-.header .head .gnb > li > ul li + li {margin-top:5px;}
+.header .head .gnb > li > ul a:hover {color:#fff;}
+.header .head .gnb > li > ul li + li {margin-top:19px;}
 .header .head .gnb > li:hover ul {display:block;}
-.header .head .gnb > li:hover > a {text-decoration: underline;}
+.header .head .gnb > li:hover > a::after {content:''; width:86px; height:1px; position: absolute; left:50%; bottom:0; transform: translateX(-50%); background:#707070;}
 
 .main-content {}
 .main-content .main-sec01 {position: relative; height:600vh; overflow: hidden;}
@@ -82,29 +85,50 @@ body {font-family: "IBM Plex Sans KR", sans-serif; font-weight: 300; background:
 .sc-line span {animation:scrollDown 2.2s cubic-bezier(.76,0,.3,1) forwards infinite; height:100%; width:1px; background:#ac9f8c; display:block;}
 
 
+.hover .txt {display:inline-block; position: relative; transition: all 0.3s;}
+.hover .txt::after {content:''; width:0; height:2px; background:#ff7979; position: absolute; left:0; bottom:-3px; transition: all 0.3s;}
+.hover:hover .txt::after {width:100%;}
+
 .main-content .main-sec02 {height:100vh; min-height:900px; position: relative; background:#000;}
 .main-content .main-sec02.play .img-bg {opacity: 0; filter: blur(5px);}
 .main-content .main-sec02 .img-bg {position: absolute; left:0; top:0; width:100%; height:100%; background:url('/assets/images/main/main_than_01.jpg') no-repeat; background-size:cover; transition: all 0.8s;}
-.main-content .main-sec02 .text {width:100%; text-align:center; position: absolute; left:0; top:0; height:100%; box-sizing: border-box; padding-top:280px; background:rgba(0, 0, 0, 0.5)}
+.main-content .main-sec02 .text {width:100%; text-align:center; position: absolute; left:0; top:0; height:100%; box-sizing: border-box; padding-top:280px;}
 .main-content .main-sec02 .text span {font-family: "Cormorant Garamond", serif; font-size: 18px; font-weight: 300; line-height: 1.72; text-align: center; color: #ac9f8c; display:inline-block;}
 .main-content .main-sec02 .text h3 {font-family: "Cormorant Garamond", serif; font-size: 70px; font-weight: bold; line-height: 1.14; text-align: center; color: #fff; display:block; margin-top:23px;}
 .main-content .main-sec02 .play-btn {position: absolute; bottom:265px; left:0; width:100%; text-align:center;}
-.main-content .main-sec02 .play-btn button {font-size: 16px; font-weight: bold; line-height: 1.2; text-align: left; color: #d4ccc2; display: flex; align-items: center; justify-content: center; margin:0 auto;}
-.main-content .main-sec02 .play-btn button span {display:inline-block; width:60px; height:60px; background-color: #d4ccc2; position: relative; border-radius:50%; margin-right:30px;}
-.main-content .main-sec02 .play-btn button span::after {content:''; position: absolute; left:50%; top:50%; transform: translate(-50%, -50%); width:15px; height:20px; background:url('/assets/images/common/icon-play.png') no-repeat; background-size:100% auto;}
+.main-content .main-sec02 .play-btn button {display: flex; align-items: center; justify-content: center; margin:0 auto;}
+.main-content .main-sec02 .play-btn button span.icon {display:flex; width:60px; height:60px; background-color: #d4ccc2; position: relative; border-radius:50%; margin-right:30px; align-items: center; justify-content: center; transition: all 0.3s;}
+.main-content .main-sec02 .play-btn button span.icon svg path { transition: all 0.3s;}
+.main-content .main-sec02 .play-btn button:hover span.icon {background:#ff7979;}
+.main-content .main-sec02 .play-btn button:hover span.icon svg {position: relative; z-index:3;}
+.main-content .main-sec02 .play-btn button:hover span.icon svg path {fill:#fff !important;}
+.main-content .main-sec02 .play-btn button .txt {font-size: 16px; font-weight: bold; line-height: 1.6; text-align: left; color: #d4ccc2; transition: all 0.3s;}
+.main-content .main-sec02 .play-btn button:hover .txt {color:#ff7979;}
+.main-content .main-sec02 .play-btn button span.icon::before {content:''; position:absolute; left:0; top:0; width:100%; height:100%; opacity: 0; background:#ff7979; top:0; border-radius: 50%; z-index:2;}
+.main-content .main-sec02 .play-btn button:hover span.icon::before {animation: sound-animation 1s linear infinite;}
 .main-content .main-sec02 iframe {width:100%; height:100%;}
+.main-content .main-sec02 .info-box {width: 409px; height: 222px; padding: 43px 51px 43px 51px; background-color: #000; box-sizing: border-box; position: absolute; left:50%; bottom:70px; margin-left:530px;}
+.main-content .main-sec02 .info-box ul li a {font-size: 27px; font-weight: 300; line-height: 1.78; text-align: left; color: #d4ccc2;}
 
 .main-content .main-sec03 {height:200vh; min-height:1800px; position: relative; background:#36312A; box-sizing: border-box;}
-.main-content .main-sec03 .move-img {width:100%; height:100vh; background:url('/assets/images/main/main_visi-01.jpg') center center no-repeat; background-size:cover; position: absolute; right:0; top:0;}
+.main-content .main-sec03 .move-img {width:100%; height:100vh; background:url('/assets/images/main/main_visi-01.jpg') center center no-repeat; background-size:cover; position: absolute; left:0; top:0;}
+.main-content .main-sec03 .move-img.active {width:692px; height:866px; top:50%; left:50%; transform: translate(10%, -50%) ;}
 .main-content .main-sec03 .bottom-sec {height:100vh; min-height:900px; width:100%; display:flex; align-items: center; justify-content: center; position:sticky; top:0; left:0;}
-.main-content .main-sec03 .text {height:866px; width:1400px;}
-.main-content .main-sec03 .text span {font-size: 18px; font-stretch: normal; line-height: 1.72; text-align: left; color: #ac9f8c; font-family: "Cormorant Garamond", serif; display:inline-block;}
+.main-content .main-sec03 .text {height:866px; width:1400px; transform: translateY(0);}
+.main-content .main-sec03 .text > span {font-size: 18px; font-stretch: normal; line-height: 1.72; text-align: left; color: #ac9f8c; font-family: "Cormorant Garamond", serif; display:inline-block;}
 .main-content .main-sec03 .text h3 {font-size: 65px; font-weight: 300; line-height: 1.38; letter-spacing: -1.3px; color: #fff; margin-top:22px;}
 .main-content .main-sec03 .text h3 strong {font-weight:500;}
 .main-content .main-sec03 .text p {margin-top:19px; font-size: 18px; font-weight: normal; line-height: 1.78; letter-spacing: -0.18px; color: #d4ccc2;}
-.main-content .main-sec03 .text .icon-list {margin-top:147px; padding-left:9px;}
-.main-content .main-sec03 .text .icon-list li {font-size: 16px; font-weight: bold; line-height: 1.63; text-align: left; color: #d4ccc2; padding-left:42px; position: relative;}
-.main-content .main-sec03 .text .icon-list li::after {content:''; width:30px; height:30px; background:#ac9f8c; border-radius:50%; position:absolute; left:0; top:50%; margin-top:-15px;}
+.main-content .main-sec03 .text .icon-list {margin-top:147px; padding-left:9px; display:inline-block;}
+.main-content .main-sec03 .text .icon-list li a {position: relative; display:flex; align-items: center;}
+.main-content .main-sec03 .text .icon-list li .icon {margin-right:15px; font-size:0; line-height:0;}
+.main-content .main-sec03 .text .icon-list li a .icon svg path {transition: all 0.3s;}
+.main-content .main-sec03 .text .icon-list li a .txt {display:inline-block; position: relative; transition: all 0.3s;}
+.main-content .main-sec03 .text .icon-list li a .txt::after {content:''; width:0; height:2px; background:#ff7979; position: absolute; left:0; bottom:-3px; transition: all 0.3s;}
+.main-content .main-sec03 .text .icon-list li a:hover .icon svg path {fill:#ff7979;}
+.main-content .main-sec03 .text .icon-list li a:hover .txt {color:#ff7979;}
+.main-content .main-sec03 .text .icon-list li a:hover .txt::after {width:100%;}
+.main-content .main-sec03 .text .icon-list li .txt {font-size: 16px; font-weight: bold; line-height: 1.63; text-align: left; color: #d4ccc2;}
 .main-content .main-sec03 .text .icon-list li + li {margin-top:20px;}
 
 .main-content .main-sec04 {height:100vh; min-height:900px; position: relative; background:url('/assets/images/main/main_than_01.jpg') center center no-repeat; background-size:cover; display:flex; align-items: center; justify-content: center; position: relative;}
@@ -123,13 +147,24 @@ body {font-family: "IBM Plex Sans KR", sans-serif; font-weight: 300; background:
 .main-content .main-sec05 .img-marker img {width:772px;}
 
 @keyframes scroll-animation{
-    0%{
-      left: 0;
-    }
-    100%{
-      left: -2400px; /* 텍스트 width와 동일 */
-    }
+  0%{
+    left: 0;
   }
+  100%{
+    left: -2400px; /* 텍스트 width와 동일 */
+  }
+}
+
+@keyframes sound-animation{
+  0%{
+    transform:scale(1);
+    opacity: 1;
+  }
+  100%{
+    transform:scale(1.3);
+    opacity: 0;
+  }
+}
 
 
 @keyframes scrollDown {
