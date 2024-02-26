@@ -1,7 +1,3 @@
-$(window).on('load', function() {
-  $('.main-content').addClass('load');
-})
-
 $('.play-btn button').on('click', function () {
   $('.main-sec02').addClass('play')
 });
@@ -15,12 +11,13 @@ maskBox.style.setProperty('--x', winW/1.5 + 'px');
 maskBox.style.setProperty('--y', winH/2 + 'px');
 
 maskBox.addEventListener('mousemove', e=> {
+  maskBox.classList.add('enter');
   maskBox.style.setProperty('--x', e.layerX + 'px');
   maskBox.style.setProperty('--y', e.layerY + 'px');
 })
 
 maskBox.addEventListener('mouseleave', e=> {
-
+  maskBox.classList.remove('enter');
   maskBox.style.setProperty('--x', winW/1.5 + 'px');
   maskBox.style.setProperty('--y', winH/2 + 'px');
 });
@@ -170,31 +167,6 @@ $(window).on('scroll', function () {
   }
 });
 
-$(window).on('resize', function () {
-  half = $(window).height() / 2;
-  ScrollTrigger.refresh();
-});
-
-
-
-// const imgBoxSize = gsap.timeline({
-//   scrollTrigger: {
-//     trigger: ".main-sec03",
-//     start: "top top",
-//     end: "+=" + (half*2),
-//     scrub: 1,
-//     // pin: true,
-//     // markers: true
-//   }
-// });
-
-// imgBoxSize.to(".move-img", {
-//   top:imgsTop, 
-//   right:imgsRight,
-//   width:'692px',
-//   height:'866px',
-//   duration: 1
-// });
 
 
 gsap.to('.move-img', {
@@ -204,11 +176,21 @@ gsap.to('.move-img', {
     onEnter: () => {
       $('.move-img').addClass('active');
     },
-    // onLeave: () => {
-    //   $('.move-img').removeClass('active');
-    // },
     onLeaveBack: () => {
       $('.move-img').removeClass('active');
+    },
+  },
+});
+
+gsap.to('.img-area', {
+  scrollTrigger: {
+    trigger: '.main-sec04',
+    start: "top 70%",
+    onEnter: () => {
+      $('.img-area').addClass('active');
+    },
+    onLeaveBack: () => {
+      $('.img-area').removeClass('active');
     },
   },
 });
@@ -231,3 +213,32 @@ $('.act-sec').each(function () {
     },
   });
 })
+
+$('.full-img').each(function () {
+  gsap.to($(this), {
+    scrollTrigger: {
+      trigger: $(this),
+      start: "top 75%",
+      onEnter: () => {
+        $(this).addClass('active');
+      },
+      // onLeave: () => {
+      //   $(this).removeClass('active');
+      // },
+      onLeaveBack: () => {
+        $(this).removeClass('active');
+      },
+    },
+  });
+})
+
+$(window).on('load', function() {
+  $('.main-content').addClass('load');
+})
+
+
+
+$(window).on('resize', function () {
+  half = $(window).height() / 2;
+  ScrollTrigger.refresh();
+});

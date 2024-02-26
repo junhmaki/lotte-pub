@@ -13,7 +13,6 @@ $(window).on('scroll', function () {
   } else {
     $('.header').removeClass('down');
   }
-
   oldsc = sc;
 });
 
