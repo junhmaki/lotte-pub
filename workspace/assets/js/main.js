@@ -23,7 +23,7 @@ maskBox.addEventListener('mouseleave', e=> {
 });
 
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(SplitText, ScrollTrigger);
 gsap.defaults({
   ease: 'none'
 });
@@ -127,32 +127,41 @@ const t9 = gsap.timeline({
   }
 });
 
-tl.to(".img01", {opacity:1, filter: "blur(0px)", scale:1, duration: 1})
+tl.to(".img01", {opacity:0.8, filter: "blur(0px)", scale:1, duration: 1})
 tl.to(".img01", {opacity:0, scale:1.5, duration: 0.3})
+tl.to(".img01", {display:"none", duration: 0.1})
 
-t2.to(".img02", {opacity:1, filter: "blur(0px)", scale:1, duration: 1})
+t2.to(".img02", {opacity:0.8, filter: "blur(0px)", scale:1, duration: 1})
 t2.to(".img02", {opacity:0, scale:1.5, duration: 0.3})
+t2.to(".img02", {display:"none", duration: 0.1})
 
-t3.to(".img03", {opacity:1, filter: "blur(0px)", scale:1, duration: 1})
+t3.to(".img03", {opacity:0.8, filter: "blur(0px)", scale:1, duration: 1})
 t3.to(".img03", {opacity:0, scale:1.5, duration: 0.3})
+t3.to(".img03", {display:"none", duration: 0.1})
 
-t4.to(".img04", {opacity:1, filter: "blur(0px)", scale:1, duration: 1})
+t4.to(".img04", {opacity:0.8, filter: "blur(0px)", scale:1, duration: 1})
 t4.to(".img04", {opacity:0, scale:1.5, duration: 0.3})
+t4.to(".img04", {display:"none", duration: 0.1})
 
-t5.to(".img05", {opacity:1, filter: "blur(0px)", scale:1, duration: 1})
+t5.to(".img05", {opacity:0.8, filter: "blur(0px)", scale:1, duration: 1})
 t5.to(".img05", {opacity:0, scale:1.5, duration: 0.3})
+t5.to(".img05", {display:"none", duration: 0.1})
 
-t6.to(".img06", {opacity:1, filter: "blur(0px)", scale:1, duration: 1})
+t6.to(".img06", {opacity:0.8, filter: "blur(0px)", scale:1, duration: 1})
 t6.to(".img06", {opacity:0, scale:1.5, duration: 0.3})
+t6.to(".img06", {display:"none", duration: 0.1})
 
-t7.to(".img07", {opacity:1, filter: "blur(0px)", scale:1, duration: 1})
+t7.to(".img07", {opacity:0.8, filter: "blur(0px)", scale:1, duration: 1})
 t7.to(".img07", {opacity:0, scale:1.5, duration: 0.3})
+t7.to(".img07", {display:"none", duration: 0.1})
 
-t8.to(".img08", {opacity:1, filter: "blur(0px)", scale:1, duration: 1})
+t8.to(".img08", {opacity:0.8, filter: "blur(0px)", scale:1, duration: 1})
 t8.to(".img08", {opacity:0, scale:1.5, duration: 0.3})
+t8.to(".img08", {display:"none", duration: 0.1})
 
-t9.to(".img09", {opacity:1, filter: "blur(0px)", scale:1, duration: 1})
+t9.to(".img09", {opacity:0.8, filter: "blur(0px)", scale:1, duration: 1})
 t9.to(".img09", {opacity:0, scale:1.5, duration: 0.3})
+t9.to(".img09", {display:"none", duration: 0.1})
 
 var imgsTop = $('.main-sec03 .text').position().top + $(window).height();
 var imgsRight = $('.main-sec03 .text').position().left;
@@ -165,6 +174,32 @@ $(window).on('scroll', function () {
   } else {
     $('.main-sec01').removeClass('over');
   }
+});
+
+gsap.to('.main-sec01', {
+  scrollTrigger: {
+    trigger: '.point01',
+    start: "top top",
+    onEnter: () => {
+      $('.main-sec01').addClass('act02');
+    },
+    onLeaveBack: () => {
+      $('.main-sec01').removeClass('act02');
+    },
+  },
+});
+
+gsap.to('.main-sec01', {
+  scrollTrigger: {
+    trigger: '.point02',
+    start: "top top",
+    onEnter: () => {
+      $('.main-sec01').addClass('act03');
+    },
+    onLeaveBack: () => {
+      $('.main-sec01').removeClass('act03');
+    },
+  },
 });
 
 
@@ -194,6 +229,28 @@ gsap.to('.img-area', {
     },
   },
 });
+gsap.to('.main-sec05', {
+  scrollTrigger: {
+    trigger: '.main-sec05',
+    start: "top 50%",
+    onEnter: () => {
+      $('.main-sec05').addClass('active');
+    },
+    onLeaveBack: () => {
+      $('.main-sec05').removeClass('active');
+    },
+  },
+});
+
+gsap.to('.main-sec03 .img-box', {
+  scrollTrigger: {
+    trigger: '.main-sec03',
+    start: "top top",
+    end: "+=100%",
+    scrub: 1,
+  },
+  y: -99
+});
 
 
 $('.act-sec').each(function () {
@@ -222,15 +279,49 @@ $('.full-img').each(function () {
       onEnter: () => {
         $(this).addClass('active');
       },
-      // onLeave: () => {
-      //   $(this).removeClass('active');
-      // },
       onLeaveBack: () => {
         $(this).removeClass('active');
       },
     },
   });
 })
+
+function setupSplits() {
+  let SplitClient = new SplitText('.tit02', { type: "word,chars" });
+  let chars = SplitClient.chars;
+  gsap.from(chars, {
+    duration: 1,
+    opacity: 0,
+    y: 10,
+    stagger: 0.2,
+    scrollTrigger: {
+      trigger: '.point01',
+      // markers: true,
+      start: `top top`,
+      end: `+=150%`,
+      scrub: true
+    }
+  });
+
+  let SplitClient2 = new SplitText('.tit03', { type: "word,chars" });
+  let chars2 = SplitClient2.chars;
+  gsap.from(chars2, {
+    duration: 1,
+    opacity: 0,
+    y: 10,
+    stagger: 0.2,
+    scrollTrigger: {
+      trigger: '.point02',
+      // markers: true,
+      start: `top top`,
+      end: `+=150%`,
+      scrub: true
+    }
+  });
+}
+
+setupSplits();
+
 
 $(window).on('load', function() {
   $('.main-content').addClass('load');
