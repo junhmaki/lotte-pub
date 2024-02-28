@@ -253,44 +253,7 @@
   <script type="text/javascript" src="/assets/js/common.js"></script>
   <!-- <script type="text/javascript" src="/assets/js/main.js"></script> -->
   <script type="text/javascript">
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.defaults({
-      ease: 'none'
-    });
-
-    gsap.to(".mid-text", {
-      scrollTrigger: {
-        trigger: '.mid-text',
-        start: "top 70%",
-        end: "+=10%",
-        scrub: 1,
-        // markers: true,
-      },
-      opacity:1,
-      filter:'blur(0)',
-      transform:'translateY(0)',
-    });
-
-
-    $('.act-sec').each(function () {
-      gsap.to($(this), {
-        scrollTrigger: {
-          trigger: $(this),
-          start: "top 70%",
-          onEnter: () => {
-            $(this).addClass('active');
-          },
-          // onLeave: () => {
-          //   $(this).removeClass('active');
-          // },
-          onLeaveBack: () => {
-            $(this).removeClass('active');
-          },
-        },
-      });
-    })
     
-
   </script>
 </body>
 </html>

@@ -22,12 +22,6 @@ maskBox.addEventListener('mouseleave', e=> {
   maskBox.style.setProperty('--y', winH/2 + 'px');
 });
 
-
-gsap.registerPlugin(SplitText, ScrollTrigger);
-gsap.defaults({
-  ease: 'none'
-});
-
 var half = $(window).height() / 2;
 
 const tl = gsap.timeline({

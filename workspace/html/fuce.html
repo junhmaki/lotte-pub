@@ -51,9 +51,9 @@
           중추적인 역할을 하게 될 것입니다.
         </p>
       </div>
-      <div class="info-ceo">
+      <div class="info-ceo act-sec">
         <h3>CEO greeting</h3>
-        <strong>
+        <strong class="quote">
           “롯데정밀화학 60주년,<br/>
           새로운 도약을 시작합니다”
         </strong>
@@ -77,50 +77,14 @@
 
   <!-- js library -->
   <script type="text/javascript" src="/assets/lib/jquery-3.6.0.min.js"></script>
-  <script  type="text/javascript" src="/assets/lib/gsap.min.js"></script>
-  <script  type="text/javascript" src="/assets/lib/scrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script  type="text/javascript" src="/assets/lib/scrollTrigger.js"></script>
+  <script  type="text/javascript" src="/assets/lib/splitText.js"></script>
 
   <!-- js init -->
   <script type="text/javascript" src="/assets/js/common.js"></script>
   <!-- <script type="text/javascript" src="/assets/js/main.js"></script> -->
-  <script type="text/javascript">
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.defaults({
-      ease: 'none'
-    });
-
-    gsap.to(".mid-text", {
-      scrollTrigger: {
-        trigger: '.mid-text',
-        start: "top 70%",
-        end: "+=10%",
-        scrub: 1,
-        // markers: true,
-      },
-      opacity:1,
-      filter:'blur(0)',
-      transform:'translateY(0)',
-    });
-
-    gsap.to(".info-ceo", {
-      scrollTrigger: {
-        trigger: '.info-ceo',
-        start: "top 70%",
-        // end: "+=10%",
-        // scrub: 1,
-        // markers: true,
-        onEnter: () => {
-          $('.info-ceo').addClass('active');
-        },
-        // onLeave: () => {
-        //   $('.info-ceo').removeClass('active');
-        // },
-        onLeaveBack: () => {
-          $('.info-ceo').removeClass('active');
-        },
-      },
-    });
-
+  <script type="text/javascript">    
   </script>
 </body>
 </html>
