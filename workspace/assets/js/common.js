@@ -89,7 +89,7 @@ if ($('.img-full').length) {
       opacity:1,
       transform:'scale(1)',
     });  
-  });  
+  });
 }
 if ($('.act-sec').length) {
   $('.act-sec').each(function () {
@@ -107,3 +107,28 @@ if ($('.act-sec').length) {
     });
   });
 }
+
+
+$('.popup-wrap .close').on('click', function() {
+  $('.popup-wrap').hide();
+});
+
+
+$('button[data-popup]').on('click', function () {
+  $('.popup-wrap').show();
+});
+
+var fileName = [
+  'index', 'fuvi', 'fuce', 'fume', 'tohi', 'path', 'pahi', 'mvmo'
+]
+
+$('.footer .next').on('click', function () {
+  var pageName = $('body').attr('data-page');
+  var count = fileName.indexOf(pageName);
+  if (count == 7) {
+    count = 0;
+  } else {
+    count++;
+  }
+  location.href = `/${fileName[count]}.html`;
+});

@@ -22,7 +22,7 @@
   <link rel="stylesheet" type="text/css" href="/assets/css/default.css" />
 </head>
 
-<body>
+<body data-page="index">
   <div class="wrap main-wrap">
     <include src="./inc/header.html" title="header"></include>
     <!-- content  -->
@@ -70,8 +70,7 @@
           </div>
         </div>
       </div>
-      <div class="main-sec02">
-        <iframe src="https://player.vimeo.com/video/76979871?autoplay=1&loop=1&autopause=0" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+      <div class="main-sec02">        
         <div class="img-bg">
           <div class="full-img"><img src="/assets/images/main/main_than_01.jpg" alt=""></div>
           <div class="text">
@@ -79,7 +78,7 @@
             <h3>History Highlight</h3>
           </div>
           <div class="play-btn">
-            <button type="button" class="hover">
+            <button type="button" class="hover" data-popup="true">
               <span class="icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="20" viewBox="0 0 15 20">
                   <path data-name="다각형 1" d="M8.752 1.872a1.5 1.5 0 0 1 2.5 0l7.2 10.8A1.5 1.5 0 0 1 17.2 15H2.8a1.5 1.5 0 0 1-1.248-2.332z" transform="rotate(90 7.5 7.5)" style="fill:#282828"/>
@@ -195,6 +194,13 @@
     
     <include src="./inc/footer.html" title="footer"></include>
   </div>
+
+  <div class="popup-wrap">
+    <div class="video-wrap">
+      <iframe src="https://player.vimeo.com/video/76979871?autoplay=1&loop=1&autopause=0" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+      <button type="button" class="close"><img src="/assets/images/common/btn-close.png" alt="닫기"></button>
+    </div>
+  </div>
   
 
   <!-- js library -->
@@ -206,7 +212,14 @@
   <!-- js init -->
   <script type="text/javascript" src="/assets/js/common.js"></script>
   <script type="text/javascript" src="/assets/js/main.js"></script>
+  <script src="https://player.vimeo.com/api/player.js"></script>
   <script type="text/javascript">
+    var player = new Vimeo.Player(document.querySelector('.video-wrap iframe'));
+    console.log(player);
+
+    document.querySelector('button.close').addEventListener('click', function() {
+      player.pause();
+    });
   </script>
 </body>
 </html>

@@ -1,7 +1,3 @@
-$('.play-btn button').on('click', function () {
-  $('.main-sec02').addClass('play')
-});
-
 var maskBox = document.querySelectorAll('.main-sec04')[0];
 
 var winW = $(window).width();
